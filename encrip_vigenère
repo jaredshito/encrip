@@ -1,5 +1,5 @@
 # -*- coding: cp1252 -*-
-abc = 'abcdefghijklmnopqrstuvwxyz'
+abc = 'abcdefghijklmnopqrstuvwxyz '
 
 opcion = ''
 while opcion < 'a' or opcion > 'c':
@@ -13,7 +13,7 @@ while opcion < 'a' or opcion > 'c':
 
     opcion = raw_input('Pulsa a , b "o" c :')
     if opcion == 'a':
-        text_cifrar=' '
+        text_cifrar=''
         print '''
         escojiste la opcion encriptar
 
@@ -39,10 +39,11 @@ while opcion < 'a' or opcion > 'c':
 
         archivo.write(clave)
         archivo.close
+        
             
 
     if opcion == 'b':
-        text_cifrar = ''
+        text_cifrar =''
         print '''
         escojiste la opcion desencriptar
 
