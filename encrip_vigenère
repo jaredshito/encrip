@@ -1,0 +1,68 @@
+# -*- coding: cp1252 -*-
+abc = 'abcdefghijklmnopqrstuvwxyz'
+
+opcion = ''
+while opcion < 'a' or opcion > 'c':
+    print '''
+        Selecciona una opcion:
+            a) encriptar
+            b) desencriptar
+            c)salir
+           
+    '''
+
+    opcion = raw_input('Pulsa a , b "o" c :')
+    if opcion == 'a':
+        text_cifrar=' '
+        print '''
+        escojiste la opcion encriptar
+
+
+        '''
+       
+        nombre = raw_input('dime el nombre del archivo a crear')
+        archivo = open(nombre,'w')
+        
+        cadena = str(raw_input('cadena a encriptar\n')).lower()
+        clave = str(raw_input('clave:')).lower()
+        i = 0
+        for letra in cadena:
+                suma = abc.find(letra) + abc.find(clave[i % len(clave)])
+                modulo = int(suma) % len(abc)
+                text_cifrar = text_cifrar + str(abc[modulo])
+                i=i+1
+
+
+        print text_cifrar
+        archivo.write(text_cifrar)
+        archivo.write("\n")
+
+        archivo.write(clave)
+        archivo.close
+            
+
+    if opcion == 'b':
+        text_cifrar = ''
+        print '''
+        escojiste la opcion desencriptar
+
+
+        '''
+        nombre = raw_input('dime el nombre del archivo a desencriptar')
+        archivo = open(nombre,'r')
+        cadena=archivo.readline()
+        clave=archivo.readline()
+        print cadena
+        print clave
+        i = 0
+        for letra in cadena:
+                suma = abc.find(letra) - abc.find(clave[i % len(clave)])
+                modulo = int(suma) % len(abc)
+                text_cifrar = text_cifrar + str(abc[modulo])
+                i=i+1
+
+        print (text_cifrar)
+        
+        
+    if opcion == 'c':
+        exit 
