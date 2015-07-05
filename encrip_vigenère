@@ -2,7 +2,7 @@
 abc = 'abcdefghijklmnopqrstuvwxyz '
 
 opcion = ''
-while opcion < 'a' or opcion > 'c':
+while True :
     print '''
         Selecciona una opcion:
             a) encriptar
@@ -13,7 +13,7 @@ while opcion < 'a' or opcion > 'c':
 
     opcion = raw_input('Pulsa a , b "o" c :')
     if opcion == 'a':
-        text_cifrar=''
+        
         print '''
         escojiste la opcion encriptar
 
@@ -25,6 +25,7 @@ while opcion < 'a' or opcion > 'c':
         
         cadena = str(raw_input('cadena a encriptar\n')).lower()
         clave = str(raw_input('clave:')).lower()
+        text_cifrar=''
         i = 0
         for letra in cadena:
                 suma = abc.find(letra) + abc.find(clave[i % len(clave)])
@@ -42,8 +43,8 @@ while opcion < 'a' or opcion > 'c':
         
             
 
-    if opcion == 'b':
-        text_cifrar =''
+    elif opcion == 'b':
+        
         print '''
         escojiste la opcion desencriptar
 
@@ -53,6 +54,7 @@ while opcion < 'a' or opcion > 'c':
         archivo = open(nombre,'r')
         cadena=archivo.readline()
         clave=archivo.readline()
+        text_cifrar =''
         print cadena
         print clave
         i = 0
@@ -65,5 +67,5 @@ while opcion < 'a' or opcion > 'c':
         print (text_cifrar)
         
         
-    if opcion == 'c':
-        exit 
+    elif opcion == 'c':
+        break
